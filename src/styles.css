@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f3efe8;
+  --color-surface: #fbf8f3;
+  --color-fg: #14161a;
+  --color-muted: #6a6e68;
+  --color-subtle: #8b8f88;
+  --color-accent: #3e5368;
+  --color-accent-fg: #f3efe8;
+  --color-border: color-mix(in oklab, var(--color-fg) 12%, transparent);
+  --color-ring: #3e5368;
+  --color-success: #2f6b4f;
+  --color-danger: #8f3a32;
+
+  --font-sans: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Newsreader", "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-border:
+    0px 0px 0px 1px rgba(20, 22, 26, 0.08),
+    0px 1px 2px -1px rgba(20, 22, 26, 0.06),
+    0px 2px 4px 0px rgba(20, 22, 26, 0.04);
+  --shadow-border-hover:
+    0px 0px 0px 1px rgba(20, 22, 26, 0.12),
+    0px 1px 2px -1px rgba(20, 22, 26, 0.08),
+    0px 2px 4px 0px rgba(20, 22, 26, 0.06);
+
+  --motion-stagger: 40ms;
+  --motion-micro: 80ms;
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-medium: 350ms;
+  --motion-slow: 400ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-y-base: 8px;
+  --motion-scale-modal: 0.96;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  img {
+    outline: 1px solid rgba(20, 22, 26, 0.1);
+    outline-offset: -1px;
+    max-width: 100%;
+  }
+
+  paypal-button,
+  paypal-pay-later-button,
+  paypal-guest-button {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+  }
+}
+
+@keyframes quay-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-y-base));
+    filter: blur(var(--motion-blur-sm, 2px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.quay-enter {
+  animation: quay-enter var(--motion-slow) var(--ease-smooth-out) both;
+}
+
+.quay-enter-2 {
+  animation-delay: 80ms;
+}
+.quay-enter-3 {
+  animation-delay: 140ms;
+}
+.quay-enter-4 {
+  animation-delay: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quay-enter,
+  .quay-enter-2,
+  .quay-enter-3,
+  .quay-enter-4 {
+    animation: none;
+  }
+}

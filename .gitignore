@@ -1,0 +1,16 @@
+node_modules
+dist
+.output
+.vinxi
+.nitro
+.vercel
+.cache
+.env
+.env.local
+*.log
+screenshots
+artifacts
+attachments
+.grok
+.project_id
+.node_modules.lock
